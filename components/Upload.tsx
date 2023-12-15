@@ -10,7 +10,6 @@ export default function Upload({}: UploadProps) {
   const metadataURL = URL + "metadata.json";
   const [model, setModel] = useState<tmImage.CustomMobileNet | null>(null);
   const imageUploadInput = useRef<HTMLInputElement>(null);
-  const predictImg = useRef<HTMLImageElement>(null);
   const [loading, setLoading] = useState<boolean>(true);
   const [prediction, setPrediction] = useState<
     | {
@@ -21,17 +20,18 @@ export default function Upload({}: UploadProps) {
   >(null);
   async function init() {
     const model = await tmImage.load(modelURL, metadataURL);
-    const predictImg = document.createElement("img");
-    predictImg.src = "/images/default.png";
-    await model?.predict(predictImg); // warm up
+    console.log(model);
     setLoading(false);
     setModel(model);
   }
 
-  async function predict() {
+  async function predict(predictImg: HTMLImageElement) {
     if (!model) return;
-    if (!predictImg || !predictImg.current) return;
-    const prediction = await model?.predict(predictImg.current);
+    if (!predictImg) return;
+    console.log(predictImg);
+    const maxPredictions = model.getTotalClasses();
+    console.log(maxPredictions);
+    const prediction = await model?.predict(predictImg);
     setPrediction(prediction);
   }
 
@@ -43,7 +43,7 @@ export default function Upload({}: UploadProps) {
     prediction?.find((p) => p.className === "fire")?.probability || 0;
   const notFireProbabilty =
     prediction?.find((p) => p.className === "not fire")?.probability || 0;
-
+  console.log(prediction);
   if (loading) return <div>Loading...</div>;
   return (
     <>
@@ -58,10 +58,11 @@ export default function Upload({}: UploadProps) {
             className="group inline-block relative w-full h-[300px]"
           >
             <img
-              ref={predictImg}
               id="image"
               src="/images/default.png"
-              className="w-full h-full object-cover cursor-pointer hover:opacity-50 transition-opacity duration-300 ease-in-out"
+              width={224}
+              height={224}
+              className="w-[224px] h-[224px] object-cover cursor-pointer hover:opacity-50 transition-opacity duration-300 ease-in-out"
             />
             <div className="hidden group-hover:block absolute top-[50%] left-[50%] translate-x-[-50%] translate-t-[-50%] pointer-events-none">
               <div className="text-xl text-gray-400">Click to upload image</div>
@@ -80,9 +81,11 @@ export default function Upload({}: UploadProps) {
                 const img = document.getElementById("image");
                 if (!img) return;
                 img.setAttribute("src", e.target.result as string);
+                const predictImg = document.createElement("img");
+                predictImg.setAttribute("src", e.target.result as string);
+                predict(predictImg);
               };
               reader.readAsDataURL(image);
-              predict();
             }}
           />
         </div>
@@ -115,7 +118,6 @@ export default function Upload({}: UploadProps) {
               </div>
             </div>
           </div>
-          {/* add message panel */}
           <textarea
             name=""
             id=""
