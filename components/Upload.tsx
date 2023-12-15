@@ -20,7 +20,6 @@ export default function Upload({}: UploadProps) {
   >(null);
   async function init() {
     const model = await tmImage.load(modelURL, metadataURL);
-    console.log(model);
     setLoading(false);
     setModel(model);
   }
@@ -28,10 +27,11 @@ export default function Upload({}: UploadProps) {
   async function predict(predictImg: HTMLImageElement) {
     if (!model) return;
     if (!predictImg) return;
-    console.log(predictImg);
     const maxPredictions = model.getTotalClasses();
-    console.log(maxPredictions);
-    const prediction = await model?.predict(predictImg);
+    let prediction = null;
+    for (let i = 0; i < 10; i++) {
+      prediction = await model?.predict(predictImg);
+    }
     setPrediction(prediction);
   }
 
@@ -43,7 +43,6 @@ export default function Upload({}: UploadProps) {
     prediction?.find((p) => p.className === "fire")?.probability || 0;
   const notFireProbabilty =
     prediction?.find((p) => p.className === "not fire")?.probability || 0;
-  console.log(prediction);
   if (loading) return <div>Loading...</div>;
   return (
     <>
@@ -81,7 +80,6 @@ export default function Upload({}: UploadProps) {
                 const img = document.getElementById("image");
                 if (!img) return;
                 img.setAttribute("src", e.target.result as string);
-                // we need tmImage.ClassifierInputSource
                 const predictImg = new Image();
                 predictImg.src = e.target.result as string;
 
