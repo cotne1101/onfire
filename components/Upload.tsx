@@ -62,7 +62,7 @@ export default function Upload({}: UploadProps) {
               src="/images/default.png"
               width={224}
               height={224}
-              className="w-[224px] h-[224px] object-cover cursor-pointer hover:opacity-50 transition-opacity duration-300 ease-in-out"
+              className="w-full h-full object-cover cursor-pointer hover:opacity-50 transition-opacity duration-300 ease-in-out"
             />
             <div className="hidden group-hover:block absolute top-[50%] left-[50%] translate-x-[-50%] translate-t-[-50%] pointer-events-none">
               <div className="text-xl text-gray-400">Click to upload image</div>
