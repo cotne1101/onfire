@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { HiFire } from "react-icons/hi";
 import { MdHealthAndSafety } from "react-icons/md";
 import { MdPeopleAlt } from "react-icons/md";
@@ -5,7 +6,7 @@ export default function Home() {
   return (
     <div>
       <div className="flex items-center gap-5 h-40 overflow-x-auto w-full">
-        <div className="h-full flex-shrink-0 w-3/4 relative">
+        <Link href="/news1" className="h-full flex-shrink-0 w-3/4 relative">
           <img
             src="https://imgs.mongabay.com/wp-content/uploads/sites/20/2020/07/23143643/GP1SU5J0_PressMedia.jpg"
             alt=""
@@ -14,8 +15,8 @@ export default function Home() {
           <div className="absolute left-0 bottom-0 z-20 bg-[#0000005a] text-white p-2 rounded-br-xl rounded-bl-xl w-full">
             A Forest Fire 5KM east...
           </div>
-        </div>
-        <div className="h-full flex-shrink-0 w-3/4 relative">
+        </Link>
+        <Link href="/news1" className="h-full flex-shrink-0 w-3/4 relative">
           <img
             src="https://cdn.britannica.com/42/188142-050-4D4D9D19/wildfire-Stanislaus-National-Forest-California-2013.jpg"
             alt=""
@@ -24,7 +25,7 @@ export default function Home() {
           <div className="absolute left-0 bottom-0 z-20 bg-[#0000005a] text-white p-2 rounded-br-xl rounded-bl-xl w-full">
             A Forest Fire 5KM east...
           </div>
-        </div>
+        </Link>
       </div>
       <div className="mt-10 flex justify-center">
         <button className="bg-primary px-5 py-3 font-semibold">

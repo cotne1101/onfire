@@ -6,8 +6,7 @@ type pageProps = {
 export default function page({ params, searchParams }: pageProps) {
   return (
     <>
-      {" "}
-      <img src="/images/news.png" className="w-full" alt="" />
+      <img src="/images/news.jpg" className="w-full" alt="" />
     </>
   );
 }
