@@ -1,11 +1,8 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-
-const inter = Inter({ subsets: ["latin"] });
-
+import Container from "@/components/Container";
 export const metadata: Metadata = {
   title: "OnFire",
   description:
@@ -19,12 +16,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body>
         <Navbar />
-        <main className="p-5 max-w-5xl mx-auto">
+        <Container>
           {children}
           <Footer />
-        </main>
+        </Container>
       </body>
     </html>
   );

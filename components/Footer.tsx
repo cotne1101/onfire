@@ -5,18 +5,18 @@ type FooterProps = {};
 
 export default function Footer({}: FooterProps) {
   return (
-    <footer>
-      <div className="grid grid-cols-2 mt-5">
+    <footer className="mt-5">
+      <div className="grid md:grid-cols-2">
         <div className="bg-primary">
           <div className="p-5">
             <h1 className="font-bold text-3xl">
               OnFire <HiFire className="inline" />
             </h1>
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam
-              eveniet optio doloremque aspernatur sint saepe dicta laborum quam
-              et asperiores aliquam fugiat rem neque impedit expedita
-              perspiciatis, provident quasi eligendi.
+              For any inquiries, questions, or assistance related to fire
+              detection solutions, please don't hesitate to reach out to us. We
+              are here to help you ensure the safety of your property and loved
+              ones.
             </p>
           </div>
         </div>
@@ -50,7 +50,7 @@ export default function Footer({}: FooterProps) {
           </form>
         </div>
       </div>
-      <div className="grid grid-cols-2">
+      <div className="grid md:grid-cols-2">
         <div className="bg-primary">
           <div className="h-4 ml-5 bg-secondary"></div>
         </div>
@@ -58,14 +58,14 @@ export default function Footer({}: FooterProps) {
           <div className="h-4 mr-5 bg-primary"></div>
         </div>
       </div>
-      <div className="grid grid-cols-2 mt-0 relative">
+      <div className="grid md:grid-cols-2 mt-0 relative">
         <div className="bg-primary p-5 pb-10">
           <SocialIcons />
         </div>
-        <div className="bg-secondary flex items-center justify-center p-5 pb-10">
+        <div className="bg-secondary flex items-center justify-center p-5 pb-20 md:pb-10">
           <button className="border border-black px-4 py-2">Submit</button>
         </div>
-        <div className="absolute left-[50%] translate-x-[-50%] font-bold text-sm bottom-2">
+        <div className="absolute left-[50%] translate-x-[-50%] font-bold text-sm bottom-2 text-center">
           @2023 ONFIRE ALL RIGHTS RESERVED
         </div>
       </div>

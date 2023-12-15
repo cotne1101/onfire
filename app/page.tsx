@@ -31,8 +31,8 @@ export default function Home() {
           Upload Threat
         </button>
       </div>
-      <div className="grid grid-cols-3 gap-4 bg-primary p-3 mt-10">
-        <div className="pr-4 border-r-8 border-[#e7d9ba]">
+      <div className="grid md:grid-cols-3 gap-4 bg-primary p-3 mt-10">
+        <div className="md:pr-4 border-b-8 md:border-b-0 pb-5 md:mb-0 md:border-r-8 border-[#e7d9ba]">
           <div className="flex font-semibold text-3xl gap-4 justify-between">
             <h3>Fires Detected</h3>
             <HiFire className="text-7xl" />
@@ -45,7 +45,7 @@ export default function Home() {
             <div className="bg-third h-5 w-3/4"></div>
           </div>
         </div>
-        <div className="pr-4 border-r-8 border-[#e7d9ba]">
+        <div className="md:pr-4 border-b-8 md:border-b-0 pb-5 md:mb-0 md:border-r-8 border-[#e7d9ba]">
           <div className="flex font-semibold text-3xl gap-4 justify-between">
             <h3>Survivors</h3>
             <MdHealthAndSafety className="text-7xl" />
@@ -72,7 +72,7 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <div className="grid grid-cols-2 mt-10 bg-primary p-5 gap-5">
+      <div className="grid md:grid-cols-2 mt-10 bg-primary p-5 gap-5">
         <div className="flex justify-between flex-col">
           <p className="text-3xl font-bold">
             Analyzying Two Decades of Fire Incidents: A Statatistcal Examination

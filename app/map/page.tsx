@@ -4,5 +4,9 @@ type pageProps = {
 };
 
 export default function page({ params, searchParams }: pageProps) {
-  return <>page</>;
+  return (
+    <>
+      <img src="/images/map.png" className="w-full" alt="" />
+    </>
+  );
 }
