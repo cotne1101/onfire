@@ -14,9 +14,9 @@ export default function Footer({}: FooterProps) {
             </h1>
             <p>
               For any inquiries, questions, or assistance related to fire
-              detection solutions, please don't hesitate to reach out to us. We
-              are here to help you ensure the safety of your property and loved
-              ones.
+              detection solutions, please don&apos;t hesitate to reach out to
+              us. We are here to help you ensure the safety of your property and
+              loved ones.
             </p>
           </div>
         </div>
@@ -24,9 +24,7 @@ export default function Footer({}: FooterProps) {
           <h2 className="text-3xl font-medium flex justify-center">
             Contact Us
           </h2>
-          {/* and form here */}
           <form action="">
-            {/* name, email, message with black border */}
             <div className="flex flex-col gap-3 mt-10">
               <input
                 type="text"
