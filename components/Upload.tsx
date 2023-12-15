@@ -81,8 +81,10 @@ export default function Upload({}: UploadProps) {
                 const img = document.getElementById("image");
                 if (!img) return;
                 img.setAttribute("src", e.target.result as string);
-                const predictImg = document.createElement("img");
-                predictImg.setAttribute("src", e.target.result as string);
+                // we need tmImage.ClassifierInputSource
+                const predictImg = new Image();
+                predictImg.src = e.target.result as string;
+
                 predict(predictImg);
               };
               reader.readAsDataURL(image);
