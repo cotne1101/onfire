@@ -27,9 +27,15 @@ export default function Home() {
           </div>
         </Link>
       </div>
-      <div className="mt-10 flex justify-center">
+      <div className="mt-10 gap-5 flex justify-center">
         <Link href="/testfire" className="bg-primary px-5 py-3 font-semibold">
           Upload Threat
+        </Link>
+        <Link
+          href="/testfire"
+          className="border-primary border-2 px-5 py-3 font-semibold"
+        >
+          Make Donations
         </Link>
       </div>
       <div className="grid md:grid-cols-3 gap-4 bg-primary p-3 mt-10">
